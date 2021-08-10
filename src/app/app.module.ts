@@ -8,12 +8,13 @@ import { NuevaNotaComponent } from './nueva-nota/nueva-nota.component';
 import { NotasComponent } from './notas/notas.component';
 
 import { AuthGuardService } from './auth-guard.service';
+import { AccesoComponent } from './acceso/acceso.component';
 @NgModule({
   declarations: [
     AppComponent,
     RegistroComponent,
      NotasComponent,  
-      NuevaNotaComponent
+      NuevaNotaComponent, AccesoComponent
   ],
   imports: [
  
