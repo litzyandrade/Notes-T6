@@ -3,23 +3,21 @@ import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing/app-routing.module';
 import { AppComponent } from './app.component';
-import { NotasComponent } from './notas/notas.component';
-import { NuevaNotaComponent } from './nueva-nota/nueva-nota.component';
+import { RegistroComponent } from './registro/registro.component';
 
+import { AuthGuardService } from './auth-guard.service';
 @NgModule({
   declarations: [
     AppComponent,
-    NotasComponent,
-    NuevaNotaComponent
+    RegistroComponent
   ],
   imports: [
  
     BrowserModule,
-    FormsModule,
-    AppRoutingModule
-    
+    AppRoutingModule,
+    FormsModule
   ],
-  providers: [],
+  providers: [ AuthGuardService],
   bootstrap: [AppComponent]
 
  
