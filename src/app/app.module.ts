@@ -4,15 +4,20 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing/app-routing.module';
 import { AppComponent } from './app.component';
 import { RegistroComponent } from './registro/registro.component';
+import { NuevaNotaComponent } from './nueva-nota/nueva-nota.component';
+import { NotasComponent } from './notas/notas.component';
 
 import { AuthGuardService } from './auth-guard.service';
 @NgModule({
   declarations: [
     AppComponent,
-    RegistroComponent
+    RegistroComponent,
+     NotasComponent,  
+      NuevaNotaComponent
   ],
   imports: [
  
+    
     BrowserModule,
     AppRoutingModule,
     FormsModule
