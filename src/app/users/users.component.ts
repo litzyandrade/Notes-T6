@@ -17,6 +17,7 @@ users: User[] =[];
     try{
       
       this.users = await this.userService.getUsers();
+
     }catch(err){
         console.log(err);
     }
