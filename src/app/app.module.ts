@@ -6,20 +6,20 @@ import { AppComponent } from './app.component';
 import { RegistroComponent } from './registro/registro.component';
 import { NuevaNotaComponent } from './nueva-nota/nueva-nota.component';
 import { NotasComponent } from './notas/notas.component';
-
-import { AuthGuardService } from './auth-guard.service';
 import { AccesoComponent } from './acceso/acceso.component';
 import { UsersComponent } from './users/users.component';
+import { AuthGuardService } from './auth-guard.service';
+
 @NgModule({
   declarations: [
     AppComponent,
     RegistroComponent,
-     NotasComponent,  
-      NuevaNotaComponent, AccesoComponent, UsersComponent
+    NotasComponent,  
+    NuevaNotaComponent, 
+    AccesoComponent, 
+    UsersComponent
   ],
   imports: [
- 
-    
     BrowserModule,
     AppRoutingModule,
     FormsModule
