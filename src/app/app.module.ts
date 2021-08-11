@@ -6,26 +6,28 @@ import { AppComponent } from './app.component';
 import { RegistroComponent } from './registro/registro.component';
 import { NuevaNotaComponent } from './nueva-nota/nueva-nota.component';
 import { NotasComponent } from './notas/notas.component';
+import { AccesoComponent } from './acceso/acceso.component';
 
 import { AuthGuardService } from './auth-guard.service';
-import { AccesoComponent } from './acceso/acceso.component';
 @NgModule({
   declarations: [
     AppComponent,
+    AccesoComponent,
     RegistroComponent,
-     NotasComponent,  
-      NuevaNotaComponent, AccesoComponent
+    NotasComponent,
+    NuevaNotaComponent, 
+    
   ],
   imports: [
- 
-    
+
+
     BrowserModule,
     AppRoutingModule,
     FormsModule
   ],
-  providers: [ AuthGuardService],
+  providers: [AuthGuardService],
   bootstrap: [AppComponent]
 
- 
+
 })
 export class AppModule { }

@@ -8,16 +8,20 @@ import { RegistroComponent } from '../registro/registro.component';
 import { AuthGuardService } from '../auth-guard.service';
 import { AccesoComponent } from '../acceso/acceso.component';
 
-const routes: Routes=[
-  {path: 'registro', component: RegistroComponent},
-  {path: 'acceso', component: AccesoComponent},
-  {path:'notas',
-   component:NotasComponent,
-  children:[{
-        path:"nueva-nota",
-    component:NuevaNotaComponent,
-  }]
-}]
+const routes: Routes = [
+  { path: '', component: RegistroComponent},
+  { path: 'acceso', component: AccesoComponent },
+  { path: 'registro', component: RegistroComponent },
+  {
+    path: 'notas', component: NotasComponent,
+    children: [{
+      path: "nueva-nota",
+      component: NuevaNotaComponent,
+    }],
+    canActivate:[ AuthGuardService ]
+
+  }
+]
 
 
 
