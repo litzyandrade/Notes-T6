@@ -11,7 +11,7 @@ export class AuthGuardService {
   canActivate(router: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean|UrlTree{
     if(!this.Acceso){
       alert("No tienes acceso porfavor logeate")
-      this.router.navigate([""],{queryParams: {back_url:router.url}})//donde dice login pondras el nombre de la ruta que creaste para login 
+      this.router.navigate(["acceso"],{queryParams: {back_url:router.url}})//donde dice login pondras el nombre de la ruta que creaste para login 
       return false
     }
     return true

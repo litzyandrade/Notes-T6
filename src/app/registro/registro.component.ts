@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from '../interfaces/user/user.module';
-import { NgForm } from '@angular/forms';
+import { FormControl, FormGroup, NgForm, Validators } from '@angular/forms';
+import { UserService } from '../servicio/user.service';
 
 @Component({
   selector: 'app-registro',
@@ -8,26 +9,35 @@ import { NgForm } from '@angular/forms';
   styleUrls: ['./registro.component.css']
 })
 export class RegistroComponent implements OnInit {
-  user:User={
-    nombre: "",
-    apellido: "",
-    telefono: "",
-    email: "",
-    password:"" 
+  
+  userForm:FormGroup;
+  mensaje: any = "";
+  constructor(private userService: UserService) { 
+    this.userForm= new FormGroup({
+      nombre: new FormControl('',[Validators.required]),
+      apellido: new FormControl('',[Validators.required]),
+      telefono: new FormControl('',[Validators.required, Validators.minLength(10)]),
+      email: new FormControl('',[Validators.required, Validators.email]),
+      password: new FormControl('',[Validators.required, Validators.minLength(5)])
+    })
   }
-  constructor() { }
 
   ngOnInit(): void {
   }
 
-  registro(fu: NgForm){
-    console.log("llegue a registro")
-    this.user = fu.value
-    console.log(this.user)
+  async registro({value, valid}: {value:User, valid:boolean}){
+    console.log(value,valid)
+    if(valid){
+      try {
+        this.mensaje = await this.userService.registerUser(value)
+        console.log(typeof this.mensaje, this.mensaje)
+      } catch (error) {
+        console.log(error)
+      }
+    }else{
+      this.mensaje= "Tienes campos invalidos"
+      console.log(this.userForm)
+    }
   }
-
-
-
-
 
 }

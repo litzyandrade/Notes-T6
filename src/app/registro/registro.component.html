@@ -1,39 +1,39 @@
-<h2 class="separador aling">Registrate</h2>
+<h2 class="separador ">Registrate</h2>
 
 <div class="conainer separador ">
     <!--Para hacer que funcione y se manden los datos 
         se tiene que usar el ngForm
     -->
-    <form #fu="ngForm" (ngSubmit)="registro(fu)">
+    <form novalidate (ngSubmit)="registro(userForm)" [formGroup]="userForm">
 
         <div class="form-group row ">
             <label for="inputEmail3" class="col-sm-2 col-form-label">Nombre</label>
             <div class="col-sm-6">
-                <input type="text" class="form-control" placeholder="Nombre" name="nombre" ngModel>
+                <input type="text" class="form-control" placeholder="Nombre" formControlName="nombre" ngModel>
             </div>
         </div>
         <div class="form-group row">
             <label for="inputPassword3" class="col-sm-2 col-form-label">Apellidos</label>
             <div class="col-sm-6">
-                <input type="text" class="form-control"  placeholder="Apellidos" name="apellido" ngModel>
+                <input type="text" class="form-control"  placeholder="Apellidos" formControlName="apellido" ngModel>
             </div>
         </div>
         <div class="form-group row">
             <label for="inputPassword3" class="col-sm-2 col-form-label">Teléfono</label>
             <div class="col-sm-6">
-                <input type="text" class="form-control" placeholder="teléfono" name="telefono" ngModel>
+                <input type="text" class="form-control" placeholder="teléfono" formControlName="telefono" ngModel>
             </div>
         </div>
         <div class="form-group row">
             <label for="inputPassword3" class="col-sm-2 col-form-label">Email</label>
             <div class="col-sm-6">
-                <input type="email" class="form-control"  placeholder="Email" name="email" ngModel>
+                <input type="email" class="form-control"  placeholder="Email" formControlName="email" ngModel>
             </div>
         </div>
         <div class="form-group row">
             <label for="inputPassword3" class="col-sm-2 col-form-label">Contraseña</label>
             <div class="col-sm-6">
-                <input type="password" class="form-control"  placeholder="Contraseña" name="password" ngModel>
+                <input type="password" class="form-control"  placeholder="Contraseña" formControlName="password" ngModel>
             </div>
         </div>
         
@@ -41,6 +41,10 @@
             <div class="col-sm-6">
                 <button type="submit"  class="btn btn-primary">Registrarse</button>
             </div>
+        </div>
+
+        <div class="alert alert-primary" role="alert">
+            {{mensaje}}
         </div>
     </form>
 </div>
