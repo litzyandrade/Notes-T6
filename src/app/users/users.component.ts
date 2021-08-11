@@ -7,8 +7,9 @@ import {User} from  '../interfaces/user/user.module';
   styleUrls: ['./users.component.css']
 })
 export class UsersComponent implements OnInit {
-users: User[] =[];
+  users: User[] =[];
   constructor(private userService: UserService) { }
+  
 
   ngOnInit(): void {
     this.getUsers();
@@ -19,7 +20,7 @@ users: User[] =[];
       this.users = await this.userService.getUsers();
     }catch(err){
         console.log(err);
-    }
+    }    
   }
 
 }
