@@ -6,11 +6,13 @@ import { NuevaNotaComponent } from '../nueva-nota/nueva-nota.component';
 import { RegistroComponent } from '../registro/registro.component';
 import { AuthGuardService } from '../auth-guard.service';
 import { AccesoComponent } from '../acceso/acceso.component';
+import { UsersComponent } from '../users/users.component';
 
 const routes: Routes = [
   { path: '', component: RegistroComponent },
   { path: 'registro', component: RegistroComponent },
   { path: 'acceso', component: AccesoComponent },
+  { path: 'users', component: UsersComponent },
   {
     path: 'notas',
     component: NotasComponent,
