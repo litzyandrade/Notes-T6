@@ -31,6 +31,7 @@ export class RegistroComponent implements OnInit {
       try {
         this.mensaje = await this.userService.registerUser(value)
         console.log(typeof this.mensaje, this.mensaje)
+        this.userForm.reset();
       } catch (error) {
         console.log(error)
       }
