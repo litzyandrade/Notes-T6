@@ -9,12 +9,13 @@ import { NotasComponent } from './notas/notas.component';
 
 import { AuthGuardService } from './auth-guard.service';
 import { AccesoComponent } from './acceso/acceso.component';
+import { UsersComponent } from './users/users.component';
 @NgModule({
   declarations: [
     AppComponent,
     RegistroComponent,
      NotasComponent,  
-      NuevaNotaComponent, AccesoComponent
+      NuevaNotaComponent, AccesoComponent, UsersComponent
   ],
   imports: [
  
