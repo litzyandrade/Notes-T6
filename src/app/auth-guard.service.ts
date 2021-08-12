@@ -9,7 +9,7 @@ export class AuthGuardService implements CanActivate{
   constructor(private router: Router, private userService:UserService) { }
 
   canActivate(router: ActivatedRouteSnapshot): boolean|UrlTree{
-    if(!this.userService.isLogin()){
+    if(this.userService.isLogin()===0){
       alert("No tienes acceso porfavor logeate")
       this.router.navigate(["acceso"],{queryParams: {back_url:router.url}})//donde dice login pondras el nombre de la ruta que creaste para login 
       return false

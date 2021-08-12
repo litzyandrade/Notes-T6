@@ -18,6 +18,7 @@ export class UsersComponent implements OnInit {
     try{
       
       this.users = await this.userService.getUsers();
+
     }catch(err){
         console.log(err);
     }    
