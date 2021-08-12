@@ -1,16 +1,16 @@
-<p>nueva-nota works!</p>
+
 <div id="main" class="container">
     <h2 id="titulo">Nueva nota</h2>
     
 </div>
 <div class="container">
-    <form>
+    <form novalidate (ngSubmit)="agregarNota(notaForm)" [formGroup]="notaForm">
         <br>
         <div class="row">
             <div class="col-md-6">
                 <div class="input-group input-group mb-6">
                     <span class="input-group-text" id="inputGroup-sizing-sm">Titulo</span>
-                    <input  type="text" name= "titulo"  ngModel class="form-control" aria-label="Sizing example input"
+                    <input  type="text" formControlName= "titulo" class="form-control" aria-label="Sizing example input"
                         aria-describedby="inputGroup-sizing-sm">
                 </div>
             </div>
@@ -23,19 +23,19 @@
             <div class="col-md-6">
                 <div class="input-group input-group mb-6">
                     <span class="input-group-text" id="inputGroup-sizing-sm">Fecha A</span>
-                    <input type="date" name="fechaA" ngModel  class="form-control" aria-label="Sizing example input"
+                    <input type="date" formControlName="fechaA"   class="form-control" aria-label="Sizing example input"
                         aria-describedby="inputGroup-sizing-sm">
                 </div>
                 <div class="input-group input-group mb-6">
                     <span class="input-group-text" id="inputGroup-sizing-sm">Fecha T</span>
-                    <input type="date" name="fechaT" ngModel  class="form-control" aria-label="Sizing example input"
+                    <input type="date"formControlName="fechaT"  class="form-control" aria-label="Sizing example input"
                         aria-describedby="inputGroup-sizing-sm">
                 </div>
             </div>
             <div class="col-md-6">
                 <div class="input-group input-group mb-6">
                     <span class="input-group-text" id="inputGroup-sizing-sm">Tipo de Nota</span>
-                    <select class="form-select"   name="tipo"  ngModel aria-label="Default select example">
+                    <select class="form-select"  formControlName="tipo"   aria-label="Default select example">
                         <option selected>-- Seleccionar --</option>
                         <option value="1">Tarea</option>
                         <option value="2">Recordatorio</option>
@@ -48,7 +48,7 @@
         <div class="row">
             <div class="col-md-12">
                     <label for="exampleFormControlTextarea1" class="form-label">Descripcion de la Nota</label>
-                    <textarea class="form-control" name="descripcion" ngModel rows="3"></textarea>
+                    <textarea class="form-control" formControlName="descripcion"  rows="3"></textarea>
                 
             </div>
             
@@ -58,7 +58,11 @@
         <div class="col-md-4 ">
             <input  class = "btn btn-success " type="submit" value="Guardar">
         </div>
-       
+        <div class="alert alert-primary" role="alert">
+
+            {{mensaje}}
+
+        </div>
     </form>
 
 

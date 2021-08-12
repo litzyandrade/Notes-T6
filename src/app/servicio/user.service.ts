@@ -1,12 +1,16 @@
 import { Injectable } from '@angular/core';
+
+
 import { ApiService } from '../api/api.service';
 import { User } from '../interfaces/user/user.module';
+import { Notas } from '../notas/notas.module';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
   users: User[] = [];
+  notas:Notas[]=[];
   constructor(private apiServices: ApiService) { }
 
   registerUser(user: User) {
@@ -39,8 +43,20 @@ export class UserService {
   isLogin() {
     return this.apiServices.getIsLogin()
   }
+getNota(){
+  return new Promise<Notas[]>((resolve,reject)=>{
+    this.notas=this.apiServices.getNotas();
+    resolve(this.notas)
+  })
+}
 
+agregarNota(nota: Notas){
+  return new Promise((resolve,reject)=>{
+    this.apiServices.setNotas(nota);
+    resolve("Nota insertada correctamente!")
+    reject("Error al insertar la nota")
 
-
+  })
+}
 
 }

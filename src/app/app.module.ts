@@ -9,6 +9,7 @@ import { NotasComponent } from './notas/notas.component';
 import { AccesoComponent } from './acceso/acceso.component';
 import { UsersComponent } from './users/users.component';
 import { AuthGuardService } from './auth-guard.service';
+import { TablaNotasComponent } from './tabla-notas/tabla-notas.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,7 @@ import { AuthGuardService } from './auth-guard.service';
     NotasComponent,  
     NuevaNotaComponent, 
     AccesoComponent, 
-    UsersComponent
+    UsersComponent, TablaNotasComponent
   ],
   imports: [
     BrowserModule,
