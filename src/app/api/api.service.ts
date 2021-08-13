@@ -6,7 +6,7 @@ import { Notas } from '../notas/notas.module';
 })
 export class ApiService {
   users: User[] = [];
-  notas:Notas[]=[];
+  notas: Notas []=[];
   constructor() {
     this.users = JSON.parse(localStorage.users || "[]")
   }
@@ -27,6 +27,7 @@ export class ApiService {
   }
   setNotas(nota: Notas){
     this.notas.push(nota);
+
     console.log(this.notas)
     localStorage.notas=JSON.stringify(this.notas)
 
@@ -42,7 +43,7 @@ export class ApiService {
         return true
       }
       else{
-        localStorage.isLogIn = 0;
+        localStorage.isLogIn = 0;   
         return false
       }
         

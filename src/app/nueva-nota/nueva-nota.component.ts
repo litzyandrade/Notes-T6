@@ -3,6 +3,8 @@ import { FormControl, FormGroup, NgForm, Validators } from '@angular/forms';
 import { Notas } from '../notas/notas.module';
 import { CustomValidators } from 'ng4-validators';
 import { UserService } from '../servicio/user.service';
+import { User } from '../interfaces/user/user.module';
+import { ApiService } from '../api/api.service';
 @Component({
   selector: 'app-nueva-nota',
   templateUrl: './nueva-nota.component.html',
@@ -11,7 +13,7 @@ import { UserService } from '../servicio/user.service';
 export class NuevaNotaComponent implements OnInit {
   mensaje: any = "";
   notaForm: FormGroup;
-  constructor(private userService: UserService) {
+  constructor(private userService: UserService, private apiService: ApiService) {
     this.notaForm = new FormGroup({
       titulo: new FormControl('', [Validators.required]),
       descripcion: new FormControl('', [Validators.required]),
@@ -22,23 +24,7 @@ export class NuevaNotaComponent implements OnInit {
   }
   ngOnInit(): void {
   }
-  /*
-   async agregarNota({value, valid}: {value:Notas, valid:boolean}){
-     console.log(value,valid)
-     if(valid){
-       try {
-       //  this.mensaje = await this.userService.registerUser(value)
-         console.log(typeof this.mensaje, this.mensaje)
-         this.userForm.reset();
-       } catch (error) {
-         console.log(error)
-       }
-     }else{
-       this.mensaje= "Tienes campos invalidos"
-       console.log(this.userForm)
-     }
-   }
- */
+
   async agregarNota({ value, valid }: { value: Notas, valid: boolean }) {
     console.log(value)
     if (valid) {

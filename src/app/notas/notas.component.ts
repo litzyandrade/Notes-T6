@@ -1,8 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Notas } from './notas.module';
-
-
+import { User } from '../interfaces/user/user.module';
 @Component({
   selector: 'app-notas',
   templateUrl: './notas.component.html',
