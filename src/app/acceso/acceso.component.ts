@@ -31,6 +31,7 @@ export class AccesoComponent implements OnInit {
         let valor = await this.userService.logIn(value.email, value.password)
         if (valor) {
           this.router.navigate(["users"])
+          console.log("esta es la sesion actual " + sessionStorage.getItem('email'))
         }
       } catch (er) {this.mensaje = "Usuario y contraseña no validos"}
     } else {
