@@ -1,11 +1,8 @@
+export interface Notas {
 
-
-
-export interface  Notas {
- 
-  titulo:String,
-  descripcion:String,
-  tipo:String,
-  fechaA:Date,
-  fechaT:Date
- }
+  titulo: String,
+  descripcion: String,
+  tipo: String,
+  fechaA: Date,
+  fechaT: Date
+}
