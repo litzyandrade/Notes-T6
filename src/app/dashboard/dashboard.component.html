@@ -1,0 +1,53 @@
+<div class="row">
+    <div class="col">
+        <h4 class="titulo">Usuarios Registrados</h4>
+        <table class="table table-info">
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Apellidos</th>
+                    <th>Telefono</th>
+                    <th>Correo</th>
+                    <th>Notas</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor = "let user of users;">
+                    <td>{{user.nombre}}</td>
+                    <td>{{user.apellido}}</td>
+                    <td>{{user.telefono}}</td>
+                    <td>{{user.email}}</td>
+                    <td><button type="button" class="btn btn-outline-primary" (click)="mostrarNotas()"><i class="fas fa-sticky-note"></i></button></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="col">
+        <h4 class="titulo">Notas por usuario</h4>
+        <table class=" table table-warning">
+            <thead>
+                <tr>
+                    <th>Titulo</th>
+                    <th>Descripcion</th>
+                    <th>Tipo</th>
+                    <th>Fecha A</th>
+                    <th>Fecha T</th>
+                   
+                </tr>
+            </thead>
+            <tbody>
+                <tr >
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    
+</div>
+
+

@@ -4,6 +4,7 @@ export interface User {
   apellido: string,
   telefono: string,
   email: string,
+<<<<<<< HEAD
   password: string,
   nota: [{
     titulo: String,
@@ -13,3 +14,9 @@ export interface User {
     fechaT: Date
   }]
 }
+=======
+  password:string,
+
+}   
+
+>>>>>>> 2300b66aafb6250219f10bc3e41c063945d8e61e

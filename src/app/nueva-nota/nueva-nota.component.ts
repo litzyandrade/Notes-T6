@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, NgForm, Validators } from '@angular/forms';
 import { Notas } from '../notas/notas.module';
-import { CustomValidators } from 'ng4-validators';
 import { UserService } from '../servicio/user.service';
-import { User } from '../interfaces/user/user.module';
+import { ApiService } from '../api/api.service';
 @Component({
   selector: 'app-nueva-nota',
   templateUrl: './nueva-nota.component.html',
@@ -12,8 +11,7 @@ import { User } from '../interfaces/user/user.module';
 export class NuevaNotaComponent implements OnInit {
   mensaje: any = "";
   notaForm: FormGroup;
-  
-  constructor(private userService: UserService) {
+  constructor(private userService: UserService, private apiService: ApiService) {
     this.notaForm = new FormGroup({
 
       titulo: new FormControl('', [Validators.required]),

@@ -1,4 +1,4 @@
-import { LocalizedString } from '@angular/compiler';
+
 import { Injectable } from '@angular/core';
 
 import { User } from '../interfaces/user/user.module';
