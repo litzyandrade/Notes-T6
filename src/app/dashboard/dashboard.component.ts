@@ -13,7 +13,9 @@ users : User[]=[];
   ngOnInit(): void {
     this.getUsers();
   }
-
+mostrarNotas(){
+  console.log("notaaaa")
+}
   async getUsers(){
     try{
       
