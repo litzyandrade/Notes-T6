@@ -6,44 +6,44 @@
     -->
     <form novalidate (ngSubmit)="registro(userForm)" [formGroup]="userForm">
 
-        <div class="form-group row ">
+        <div class="mb-3 row">
             <label for="inputEmail3" class="col-sm-2 col-form-label">Nombre</label>
             <div class="col-sm-6">
                 <input type="text" class="form-control" placeholder="Nombre" formControlName="nombre" ngModel>
             </div>
         </div>
-        <div class="form-group row">
+        <div class="mb-3 row">
             <label for="inputPassword3" class="col-sm-2 col-form-label">Apellidos</label>
             <div class="col-sm-6">
-                <input type="text" class="form-control"  placeholder="Apellidos" formControlName="apellido" ngModel>
+                <input type="text" class="form-control" placeholder="Apellidos" formControlName="apellido" ngModel>
             </div>
         </div>
-        <div class="form-group row">
+        <div class="mb-3 row">
             <label for="inputPassword3" class="col-sm-2 col-form-label">Teléfono</label>
             <div class="col-sm-6">
                 <input type="text" class="form-control" placeholder="teléfono" formControlName="telefono" ngModel>
             </div>
         </div>
-        <div class="form-group row">
+        <div class="mb-3 row">
             <label for="inputPassword3" class="col-sm-2 col-form-label">Email</label>
             <div class="col-sm-6">
-                <input type="email" class="form-control"  placeholder="Email" formControlName="email" ngModel>
+                <input type="email" class="form-control" placeholder="Email" formControlName="email" ngModel>
             </div>
         </div>
-        <div class="form-group row">
+        <div class="mb-3 row">
             <label for="inputPassword3" class="col-sm-2 col-form-label">Contraseña</label>
             <div class="col-sm-6">
-                <input type="password" class="form-control"  placeholder="Contraseña" formControlName="password" ngModel>
+                <input type="password" class="form-control" placeholder="Contraseña" formControlName="password" ngModel>
             </div>
+           
         </div>
         
-        <div class="form-group row">
-            <div class="col-sm-6">
-                <button type="submit"  class="btn btn-primary">Registrarse</button>
+        <div class="col-sm-8">
+            <div class="d-grid gap-2">
+                <button type="submit" class="btn btn-dark">Registrarse</button>
             </div>
         </div>
-
-        <div class="alert alert-primary" role="alert">
+        <div class="alert" role="alert">
             {{mensaje}}
         </div>
     </form>
