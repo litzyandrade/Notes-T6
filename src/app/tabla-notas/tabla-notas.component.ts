@@ -8,7 +8,7 @@ import { User } from '../interfaces/user/user.module';
   styleUrls: ['./tabla-notas.component.css']
 })
 export class TablaNotasComponent implements OnInit {
-notes:User[]=[];
+notas:Notas[]=[];
 user: any = {}
   constructor(private userService: UserService) { }
 
@@ -17,7 +17,7 @@ user: any = {}
   }
  async obtenerNotas(){
    try {
-    this.user.notes = await this.userService.getNota();
+    this.notas = await this.userService.getNota();
      
    } catch (error) {
     console.log(error);

@@ -8,7 +8,7 @@ import { Notas } from '../notas/notas.module';
 })
 export class ApiService {
   users: User[] = [];
-  notes: User[] =[];
+  notas: Notas[] =[];
   user: any = {}
   userEncontrado: User = {
     nombre: "",
@@ -41,10 +41,9 @@ export class ApiService {
     return this.users;
   }
 
-  getNotas(): User[] {
-    
-    this.notes = JSON.parse(localStorage.users)
-    return this.notes;
+  getNotas(): Notas[] {
+    this.notas = JSON.parse(localStorage.notas)
+    return this.notas;
   }
 
   setNotas(nota: Notas) {

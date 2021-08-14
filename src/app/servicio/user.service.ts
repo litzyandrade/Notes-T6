@@ -8,7 +8,7 @@ import { Notas } from '../notas/notas.module';
 })
 export class UserService {
   users: User[] = [];
-  notes: User[] = [];
+  notes: Notas[] = [];
   constructor(private apiServices: ApiService) { }
 
   registerUser(user: User) {
@@ -42,7 +42,7 @@ export class UserService {
     return this.apiServices.getIsLogin()
   }
 getNota(){
-  return new Promise<User[]>((resolve,reject)=>{
+  return new Promise<Notas[]>((resolve,reject)=>{
     this.notes=this.apiServices.getNotas();
     resolve(this.notes)
   })
