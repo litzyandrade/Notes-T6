@@ -4,22 +4,22 @@
 
 <div class="container mt-5 mb-3">
     <div class="row">
-        <div class="col-md-4" *ngFor = "let notes of user.notes">
+        <div class="col-md-4" *ngFor = "let nota of notas;">
             <div class="card p-3 mb-2">
                 <div class="d-flex justify-content-between">
                     <div class="d-flex flex-row align-items-center">
                         <div class="icon"> <i class="fas fa-file-signature"></i></div>
                         <div class="ms-2 c-details">
-                            <h6 class="mb-0">{{notes["titulo"]}}</h6> <span>{{notes["fechaA"]}}</span>
+                            <h6 class="mb-0">{{nota.titulo}}</h6> <span>{{nota.fechaA}}</span>
                         </div>
                     </div>
                     <div class="badge"> <span><button type="button" id="btnEliminar" class="btn btn-outline-danger"><i class="fas fa-trash"></i></button></span> </div>
                 </div>
                 <div class="mt-5">
-                    <h3 class="heading">{{notes["descripcion"]}}</h3>
+                    <h3 class="heading">{{nota.descripcion}}</h3>
                     <div class="mt-5">
                         <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                            <div class="badge-tipo"> <span>{{notes["tipo"]}} </span> </div>
+                            <div class="badge-tipo"> <span>{{nota.tipo}} </span> </div>
                             <button class="btn btn-outline-light me-md-2" type="button" id="see" title="Ver"><i class="fas fa-eye"></i></button>
                             <button class="btn btn-outline-light" type="button" id="edit" title="Editar Nota"><i class="fas fa-pen-alt"></i></button>
                             

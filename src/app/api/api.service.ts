@@ -8,7 +8,7 @@ import { Notas } from '../notas/notas.module';
 })
 export class ApiService {
   users: User[] = [];
-  notes: User[] =[];
+  notas: Notas[] = [];
   user: any = {}
   userEncontrado: User = {
     nombre: "",
@@ -41,10 +41,9 @@ export class ApiService {
     return this.users;
   }
 
-  getNotas(): User[] {
-    
-    this.notes = JSON.parse(localStorage.users)
-    return this.notes;
+  getNotas(): Notas[] {
+    this.notas = JSON.parse(localStorage.notas)
+    return this.notas;
   }
 
   setNotas(nota: Notas) {
@@ -61,6 +60,27 @@ export class ApiService {
 
 
 
+
+    /*for (let i = 0; i < emails.length; i++) {
+      if (emails[i] == sessionStorage.getItem('email')) {
+        user.nota.push(nota)
+      }
+    }*/
+
+    //console.log(this.users)
+    //user.nota.push(nota)
+    //console.log(user)
+
+
+
+
+
+
+
+
+    /*this.notas.push(nota);
+    console.log(this.notas)
+    localStorage.notas=JSON.stringify(this.notas)*/
   }
 
   logIn(email: string, password: string): boolean { // /login POST

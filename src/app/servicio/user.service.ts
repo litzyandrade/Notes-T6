@@ -1,4 +1,6 @@
 import { Injectable } from '@angular/core';
+
+
 import { ApiService } from '../api/api.service';
 import { User } from '../interfaces/user/user.module';
 import { Notas } from '../notas/notas.module';
@@ -8,7 +10,7 @@ import { Notas } from '../notas/notas.module';
 })
 export class UserService {
   users: User[] = [];
-  notes: User[] = [];
+  notas:Notas[]=[];
   constructor(private apiServices: ApiService) { }
 
   registerUser(user: User) {
@@ -42,9 +44,9 @@ export class UserService {
     return this.apiServices.getIsLogin()
   }
 getNota(){
-  return new Promise<User[]>((resolve,reject)=>{
-    this.notes=this.apiServices.getNotas();
-    resolve(this.notes)
+  return new Promise<Notas[]>((resolve,reject)=>{
+    this.notas=this.apiServices.getNotas();
+    resolve(this.notas)
   })
 }
 
