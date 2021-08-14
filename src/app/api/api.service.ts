@@ -16,7 +16,7 @@ export class ApiService {
     telefono: "",
     email: "",
     password: "",
-    nota: [{
+    notes: [{
       titulo: "",
       descripcion: "",
       tipo: "",
@@ -53,12 +53,11 @@ export class ApiService {
     this.user = this.users.find(obj => obj.email == sessionStorage.getItem('email'))
     
     this.userEncontrado=this.user
-    //this.userEncontrado.nota.push(nota) nomas tienes que descomentar esto para que veas como falla :C jaja
-    console.log("esto es user2", this.user)
+    this.userEncontrado.notes.push(nota) 
+  //  console.log("esto es user2", this.user)
     console.log("esto es userencontrado", this.userEncontrado)
+    localStorage.users = JSON.stringify(this.users)
 
-    //userEncontrado.nota.push(nota)
-    //console.log("variable userencontrado", userEncontrado)
 
 
 
