@@ -1,6 +1,4 @@
 import { Injectable } from '@angular/core';
-
-
 import { ApiService } from '../api/api.service';
 import { User } from '../interfaces/user/user.module';
 import { Notas } from '../notas/notas.module';
@@ -55,6 +53,16 @@ agregarNota(nota: Notas){
     this.apiServices.setNotas(nota);
     resolve("Nota insertada correctamente!")
     reject("Error al insertar la nota")
+
+  })
+}
+
+eliminarNota(nota: Notas){
+  return new Promise((resolve,reject)=>{
+    console.log("si entro a eliminar")
+    this.apiServices.deleteNota(nota);
+    resolve("Nota eliminada correctamente!")
+    reject("Error al eliminar la nota")
 
   })
 }

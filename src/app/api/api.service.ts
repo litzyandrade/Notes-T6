@@ -1,4 +1,5 @@
 
+import { LocalizedString } from '@angular/compiler';
 import { Injectable } from '@angular/core';
 
 import { User } from '../interfaces/user/user.module';
@@ -44,6 +45,25 @@ export class ApiService {
   getNotas(): Notas[] {
     this.notas = JSON.parse(localStorage.notas)
     return this.notas;
+  }
+
+  deleteNota(notaActual : Notas){
+    this.users = JSON.parse(localStorage.users)
+
+    this.user = this.users.find(obj => obj.email == sessionStorage.getItem('email'))
+    console.log(this.user.notes)
+    this.notas = this.user.notes
+    var index = this.user.notes.indexOf(notaActual);
+
+    console.log("index", index, notaActual)
+    if (index > -1) {
+      console.log("entro al if")
+      this.user.notes.splice(index, 1);
+     }
+    
+    console.log("elimino")
+    localStorage.users = JSON.stringify(this.users)
+    
   }
 
   setNotas(nota: Notas) {
