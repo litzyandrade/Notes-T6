@@ -17,7 +17,7 @@
                     <td>{{user.apellido}}</td>
                     <td>{{user.telefono}}</td>
                     <td>{{user.email}}</td>
-                    <td><button type="button" class="btn btn-outline-primary" (click)="mostrarNotas()"><i class="fas fa-sticky-note"></i></button></td>
+                    <td><button type="button" class="btn btn-outline-primary" (click)="mostrarNotas(user.email)"><i class="fas fa-sticky-note"></i></button></td>
                 </tr>
             </tbody>
         </table>
@@ -32,16 +32,18 @@
                     <th>Tipo</th>
                     <th>Fecha A</th>
                     <th>Fecha T</th>
+                    <th>Eliminar</th>
                    
                 </tr>
             </thead>
             <tbody>
-                <tr >
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
+                <tr *ngFor = "let nota of notas;">
+                    <td>{{nota.titulo}}</td>
+                    <td>{{nota.descripcion}}</td>
+                    <td>{{nota.tipo}}</td>  
+                    <td>{{nota.fechaA}}</td>
+                    <td>{{nota.fechaT}}</td>
+                    <td><button type="button" class="btn btn-danger" (click)="eliminarNotas(nota.titulo)"><i class="fas fa-trash"></i></button></td>
                     
                 </tr>
             </tbody>
