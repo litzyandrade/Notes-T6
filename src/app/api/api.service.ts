@@ -79,7 +79,7 @@ export class ApiService {
     var index = this.user.notes.indexOf(notaActual);
 
     console.log("index", index, notaActual)
-    if (index > -1) {
+    if (index == -1) {
       console.log("entro al if")
       this.user.notes.splice(index, 1);
     }
