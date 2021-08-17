@@ -7,6 +7,7 @@ import { Notas } from '../notas/notas.module';
   providedIn: 'root'
 })
 export class UserService {
+  user: User[]=[];
   users: User[] = [];
   notas:Notas[]=[];
   constructor(private apiServices: ApiService) { }
@@ -28,7 +29,13 @@ export class UserService {
       resolve(this.users);
     })
   }
-
+ /* getUserLog() {
+    return new Promise<User[]>((resolve, reject) => {
+      this.user = this.apiServices.getUserLog();
+      resolve(this.user);
+    })
+  }
+*/
   logIn(email: string, password: string) {
     return new Promise((resolve, reject) => {
       let isUser = this.apiServices.logIn(email, password);

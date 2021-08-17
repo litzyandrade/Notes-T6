@@ -17,7 +17,7 @@ export class DashboardComponent implements OnInit {
 
     ngOnInit(): void {
       this.getUsers();
-      this.getNotas();
+      //this.getNotas();
     }
 
     userEncontrado: User = {
