@@ -88,7 +88,22 @@ export class ApiService {
     localStorage.users = JSON.stringify(this.users)
 
   }
+deleteUsuario(userEncontrado: User){
+  this.users = JSON.parse(localStorage.users)
+  this.user = this.users.find(obj => obj.nombre == localStorage.getItem('nombre'))
+  this.userEncontrado = this.user
+  console.log("recibe usuario",this.userEncontrado)
+  var index = this.users.indexOf(userEncontrado);
 
+  console.log("index", index, userEncontrado)
+    if (index == -1) {
+      console.log("entro al if")
+      this.users.splice(index, 1);
+    }
+
+    console.log("elimino usuario")
+    localStorage.users = JSON.stringify(this.users)
+}
 
 
   logIn(email: string, password: string): boolean { // /login POST

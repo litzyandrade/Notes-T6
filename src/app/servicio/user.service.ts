@@ -57,7 +57,14 @@ export class UserService {
 
     })
   }
-
+eliminarUsuario(user: User){
+return new Promise((resolve,reject)=>{
+  console.log("si entro a eliminar")
+  this.apiServices.deleteUsuario(user);
+  resolve("Usuario eliminado correctamente!")
+  reject("Error al eliminar usuario")
+})
+}
   eliminarNota(nota: Notas) {
     return new Promise((resolve, reject) => {
       console.log("si entro a eliminar")
