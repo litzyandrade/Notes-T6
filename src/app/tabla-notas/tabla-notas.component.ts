@@ -49,6 +49,7 @@ export class TablaNotasComponent implements OnInit {
 
   async getUsers() {
     try {
+
       this.users = await this.userService.getUsers();
     } catch (err) {
       console.log(err);

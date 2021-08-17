@@ -19,13 +19,18 @@
                     <td>
                         <div class="d-grid gap-2 d-md-flex">
                             <button type="button" class="btn btn-outline-primary" (click)="mostrarNotas(user.email)"><i class="fas fa-sticky-note"></i></button>
-                            <button type="button" class="btn btn-outline-danger"><i class="fas fa-trash"></i></button>
+                            <button type="button" class="btn btn-outline-danger" (click)="eliminarUsuario(user.nombre)"><i class="fas fa-trash"></i></button>
                         </div>
                     </td>
                 </tr>
             </tbody>
         </table>
-
+        <div class="alert  d-flex align-items-center" role="alert">
+            <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Success:"><use xlink:href="#check-circle-fill"/></svg>
+            <div>
+            {{mensajeExito}}
+            </div>
+          </div>
         <h3 class="titulo">Notas por usuario</h3>
         <div class="container mt-5 mb-3">
             <div class="row">

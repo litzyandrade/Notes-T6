@@ -9,9 +9,11 @@ import { Notas } from '../notas/notas.module';
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
+  user: User[]=[];
   users: User[] = [];
   notas: Notas[] = [];
   mensaje: any = "";
+  mensajeExito: any ="";
 
   constructor(private userService: UserService) { }
 
@@ -53,7 +55,16 @@ export class DashboardComponent implements OnInit {
     })
 
   }
-
+async eliminarUsuario(nombre: String){
+  try{
+    this.userEncontrado = this.users.filter(user => user.nombre == nombre)[0]
+    this.mensaje = await this.userService.eliminarUsuario(this.userEncontrado)
+    console.log(this.mensaje)
+    this.mensajeExito ="Usuario eliminado exitosamente, recarga la pagina para ver cambios"
+  }catch (error){
+    console.log(error);
+  }
+}
   async eliminarNotas(titulo: String) {
     try {
       this.notaActual = this.notas.filter(nota => nota.titulo == titulo)[0]
