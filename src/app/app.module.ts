@@ -12,6 +12,7 @@ import { AuthGuardService } from './auth-guard.service';
 import { TablaNotasComponent } from './tabla-notas/tabla-notas.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -20,7 +21,8 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     NotasComponent,  
     NuevaNotaComponent, 
     AccesoComponent, 
-    UsersComponent, TablaNotasComponent, DashboardComponent
+    UsersComponent, TablaNotasComponent, DashboardComponent,
+    
   ],
   imports: [
     BrowserModule,

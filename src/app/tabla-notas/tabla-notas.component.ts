@@ -1,8 +1,9 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Notas } from '../notas/notas.module';
-import { User } from '../interfaces/user/user.module';
-import { UserService } from '../servicio/user.service';
 
+import { UserService } from '../servicio/user.service';
+import { User } from '../interfaces/user/user.module';
+import { email } from 'ng4-validators/src/app/email/validator';
 @Component({
   selector: 'app-tabla-notas',
   templateUrl: './tabla-notas.component.html',

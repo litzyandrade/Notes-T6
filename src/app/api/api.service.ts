@@ -39,6 +39,19 @@ export class ApiService {
     this.users = JSON.parse(localStorage.users)
     return this.users;
   }
+  /*getUserLog(): User[]{
+   
+     this.users = JSON.parse(localStorage.users)
+    this.user = this.users.find(obj => obj.email == sessionStorage.getItem('email'))
+    this.userEncontrado = this.user
+    this.userEncontrado.notes.forEach(nota => {
+            this.notas.push(nota) } )
+    this.users = this.user
+    console.log(this.users)
+
+    return this.users;
+   
+  }*/
 
   setNotas(nota: Notas) {
 
@@ -54,6 +67,7 @@ export class ApiService {
     console.log(localStorage.users)
 
   }
+ 
 
 
   deleteNota(notaActual: Notas) {
