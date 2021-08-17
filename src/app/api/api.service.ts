@@ -9,6 +9,7 @@ export class ApiService {
   users: User[] = [];
   notas: Notas[] = [];
   user: any = {}
+  sesion: any = 0;
   userEncontrado: User = {
     nombre: "",
     apellido: "",
@@ -134,6 +135,10 @@ deleteUsuario(userEncontrado: User){
     return parseInt(localStorage.isLogIn) || 0;
   }
 
+  logout(){
+    this.sesion = localStorage.getItem('isLogIn')
+    console.log(this.sesion)
+  }
 
 }
 

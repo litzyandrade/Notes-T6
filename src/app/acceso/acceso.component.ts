@@ -12,6 +12,8 @@ export class AccesoComponent implements OnInit {
   loginForm: FormGroup;
   mensaje: any = "";
   flag: boolean = false;
+  bandera: boolean =false;
+  aviso: any ="";
   constructor(private userService: UserService, private router: Router) {
     this.loginForm = new FormGroup({
       email: new FormControl('', [Validators.required]),
@@ -22,7 +24,7 @@ export class AccesoComponent implements OnInit {
 
   ngOnInit(): void {
 
-
+this.isLogin();
 
   }
   async loginUser({value, valid}:{ value: User, valid: boolean}) {
@@ -43,5 +45,20 @@ export class AccesoComponent implements OnInit {
       console.log("error")
     }
   }
-
+  async isLogin(){
+    let sesion = await this.userService.isLogin();
+    if (sesion == 1){
+      this.bandera = !this.bandera;
+      this.aviso =this.bandera? "ACTUALMENTE YA ESTAS EN UNA SESION" : "No has iniciado sesion"
+    }
+    console.log (sesion)
+  }
+   logOut(){
+   let sesion = localStorage.getItem('isLogIn')
+    console.log("sesion obtenida de la funcion ",sesion)
+    localStorage.setItem('isLogIn', '0')
+    console.log("1 cambio a 0: ",localStorage.isLogIn)
+    this.router.navigate(["registro"])
+    alert("Has cerrado sesion. Estas siendo redirigido al Home")
+  }
 }
