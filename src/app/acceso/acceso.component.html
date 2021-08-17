@@ -1,4 +1,9 @@
 <h5>¿No tienes una cuenta? <a routerLink="/registro">!Registrate aqui!</a></h5>
+<div class="alert alert-warning" role="alert" *ngIf= "bandera==true">
+  <i class="fas fa-exclamation-triangle"></i> {{aviso}}
+    <h5>¿Quieres cerrar sesion? Click aqui: <span><button type="button" class="btn btn-outline-dark" (click)="logOut()"><i class="fas fa-sign-out-alt"></i></button></span></h5>
+</div>
+<div class="container" *ngIf= "bandera==false">
 <form novalidate (ngSubmit)="loginUser(loginForm)" [formGroup]="loginForm">
 
   <h2 class="separador aling">Accesar</h2>
@@ -21,3 +26,4 @@
   </div>
 
 </form>
+</div>

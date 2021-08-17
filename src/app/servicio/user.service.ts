@@ -48,7 +48,13 @@ export class UserService {
   isLogin() {
     return this.apiServices.getIsLogin()
   }
- 
+  logout(){
+    return new Promise ((resolve, reject) =>{
+      let sesion = this.apiServices.logout();
+        resolve (console.log("entro"))
+   
+    })
+  }
 
   agregarNota(nota: Notas) {
     return new Promise((resolve, reject) => {

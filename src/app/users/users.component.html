@@ -1,20 +1,18 @@
 <h4 class="sesion">Sesion activa: <span>{{mensaje}}</span></h4>
-<table class="table table-info table-striped">
-    <thead>
-        <tr>
-            <th>Nombre</th>
-            <th>Apellidos</th>
-            <th>Telefono</th>
-            <th>Correo</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr *ngFor = "let user of users;">
-            <td>{{user.nombre}}</td>
-            <td>{{user.apellido}}</td>
-            <td>{{user.telefono}}</td>
-            <td>{{user.email}}</td>
-        </tr>
-    </tbody>
-</table>
+<div class="row">
+    <div class= "col-md-6" *ngFor = "let user of users;">
+        <div class="card text-center">
+            <div class="card-header">
+              Usuario:
+            </div>
+            <div class="card-body">
+              <h5 class="card-title">{{user.nombre}} <span>{{user.apellido}}</span></h5>
+              <p class="card-text">{{user.email}}</p>
+              <p class="card-text">{{user.telefono}}</p>
+            </div>
+          </div>
+    </div>
+</div>
+
+
 
