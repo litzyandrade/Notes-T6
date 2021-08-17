@@ -1,5 +1,3 @@
-
-import { LocalizedString } from '@angular/compiler';
 import { Injectable } from '@angular/core';
 
 import { User } from '../interfaces/user/user.module';
@@ -55,13 +53,24 @@ export class ApiService {
    
   }*/
 
-  getNotas(): Notas[] {
-    this.notas = JSON.parse(localStorage.notas)
-    return this.notas;
+  setNotas(nota: Notas) {
+
+    this.users = JSON.parse(localStorage.users)
+
+    this.user = this.users.find(obj => obj.email == sessionStorage.getItem('email'))
+
+    this.userEncontrado = this.user
+    this.userEncontrado.notes.push(nota)
+
+    console.log("esto es userencontrado", this.userEncontrado)
+    localStorage.users = JSON.stringify(this.users)
+    console.log(localStorage.users)
+
   }
  
 
-  deleteNota(notaActual : Notas){
+
+  deleteNota(notaActual: Notas) {
     this.users = JSON.parse(localStorage.users)
 
     this.user = this.users.find(obj => obj.email == sessionStorage.getItem('email'))
@@ -73,49 +82,14 @@ export class ApiService {
     if (index > -1) {
       console.log("entro al if")
       this.user.notes.splice(index, 1);
-     }
-    
+    }
+
     console.log("elimino")
     localStorage.users = JSON.stringify(this.users)
-    
+
   }
 
-  setNotas(nota: Notas) {
 
-    this.users = JSON.parse(localStorage.users)
-    
-    this.user = this.users.find(obj => obj.email == sessionStorage.getItem('email'))
-    
-    this.userEncontrado=this.user
-    this.userEncontrado.notes.push(nota) 
-  //  console.log("esto es user2", this.user)
-    console.log("esto es userencontrado", this.userEncontrado)
-    localStorage.users = JSON.stringify(this.users)
-
-
-
-
-    /*for (let i = 0; i < emails.length; i++) {
-      if (emails[i] == sessionStorage.getItem('email')) {
-        user.nota.push(nota)
-      }
-    }*/
-
-    //console.log(this.users)
-    //user.nota.push(nota)
-    //console.log(user)
-
-
-
-
-
-
-
-
-    /*this.notas.push(nota);
-    console.log(this.notas)
-    localStorage.notas=JSON.stringify(this.notas)*/
-  }
 
   logIn(email: string, password: string): boolean { // /login POST
     this.users = JSON.parse(localStorage.users || "[]");
