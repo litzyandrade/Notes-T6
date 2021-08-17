@@ -13,6 +13,10 @@ export class TablaNotasComponent implements OnInit {
   users: User[] = [];
   notas: Notas[] = [];
   user: any = {}
+  mensaje: any = "";
+  sesion: any ="";
+  flag : boolean = false;
+  bandera: boolean = false;
   userEncontrado: User = {
     nombre: "test",
     apellido: "test",
@@ -27,6 +31,13 @@ export class TablaNotasComponent implements OnInit {
       fechaT: new Date()
     },]
   }
+  notaActual: Notas = {
+    titulo: "",
+    descripcion: "",
+    tipo: "",
+    fechaA: new Date(),
+    fechaT: new Date()
+  }
   constructor(private userService: UserService) { }
 
   ngOnInit(): void {
@@ -34,7 +45,7 @@ export class TablaNotasComponent implements OnInit {
 
     setTimeout(() => {
       this.mostrarNotas();
-    }, 2000);
+    }, 1000);
 
   }
 
@@ -45,11 +56,26 @@ export class TablaNotasComponent implements OnInit {
     this.userEncontrado.notes.forEach(nota => {
       this.notas.push(nota)
     })
+    if (this.notas.length ==0){
+      console.log("entro",this.mensaje)
+      this.flag = !this.flag;
+      this.mensaje = this.flag?"!Vaya! parece que aun no tienes notas" : "Ocultar"
+    }
   }
-
+  async eliminarNotas(titulo: String) {
+    try {
+      this.notaActual = this.notas.filter(nota => nota.titulo == titulo)[0]
+      this.bandera= !this.bandera;
+      this.mensaje = this.bandera? await this.userService.eliminarNota(this.notaActual) : "error"
+      console.log(this.mensaje)
+    }
+    catch (err) {
+      console.log(err);
+    }
+  }
   async getUsers() {
     try {
-
+      this.sesion = sessionStorage.getItem('email')
       this.users = await this.userService.getUsers();
     } catch (err) {
       console.log(err);

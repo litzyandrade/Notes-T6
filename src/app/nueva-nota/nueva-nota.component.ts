@@ -11,6 +11,7 @@ import { ApiService } from '../api/api.service';
 export class NuevaNotaComponent implements OnInit {
   mensaje: any = "";
   notaForm: FormGroup;
+  bandera: boolean = false;
   constructor(private userService: UserService, private apiService: ApiService) {
     this.notaForm = new FormGroup({
 
@@ -28,11 +29,9 @@ export class NuevaNotaComponent implements OnInit {
     console.log(value)
     if (valid) {
       try {
-
-        this.mensaje = await this.userService.agregarNota(value)
-        console.log(this.mensaje)
         this.notaForm.reset();
-
+        this.bandera = !this.bandera;
+        this.mensaje = this.bandera? await this.userService.agregarNota(value) : "Error"
       } catch (error) {
         console.log(error)
       }

@@ -1,7 +1,20 @@
+.sesion{
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: 600;
+}
+.sesion span {
+    color: rgb(10, 56, 109);
+}
 .b span{
     color: #2a6ba7;
     text-transform:capitalize;
     font-family: 'Courier New', Courier, monospace;
+}
+.alert{
+    color:teal;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 20px;
+    text-align: center;
 }
 #btnEliminar{
     border: none;

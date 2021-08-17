@@ -48,11 +48,12 @@ export class UserService {
   isLogin() {
     return this.apiServices.getIsLogin()
   }
+ 
 
   agregarNota(nota: Notas) {
     return new Promise((resolve, reject) => {
       this.apiServices.setNotas(nota);
-      resolve("Nota insertada correctamente!")
+      resolve("Nota insertada correctamente! Recarga la pagina para verla")
       reject("Error al insertar la nota")
 
     })
@@ -69,7 +70,7 @@ return new Promise((resolve,reject)=>{
     return new Promise((resolve, reject) => {
       console.log("si entro a eliminar")
       this.apiServices.deleteNota(nota);
-      resolve("Nota eliminada correctamente!")
+      resolve("Nota eliminada correctamente! recarga la pagina para ver los cambios")
       reject("Error al eliminar la nota")
 
     })

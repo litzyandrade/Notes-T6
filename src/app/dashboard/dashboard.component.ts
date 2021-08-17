@@ -14,7 +14,10 @@ export class DashboardComponent implements OnInit {
   notas: Notas[] = [];
   mensaje: any = "";
   mensajeExito: any ="";
-
+  aviso: any = "";
+  flag: boolean =false;
+  bandera : boolean = false;
+  b : boolean = false;
   constructor(private userService: UserService) { }
 
   ngOnInit(): void {
@@ -52,7 +55,13 @@ export class DashboardComponent implements OnInit {
     this.userEncontrado = this.users.filter(user => user.email == email)[0]
     this.userEncontrado.notes.forEach(nota => {
       this.notas.push(nota)
+      
     })
+    if (this.notas.length ==0){
+      console.log("entro",this.mensaje)
+      this.flag = !this.flag;
+      this.mensaje = this.flag?"!Vaya! parece que aun no tienes notas guardadas en este usuario" : "Ocultar"
+    }
 
   }
 async eliminarUsuario(nombre: String){
@@ -60,7 +69,8 @@ async eliminarUsuario(nombre: String){
     this.userEncontrado = this.users.filter(user => user.nombre == nombre)[0]
     this.mensaje = await this.userService.eliminarUsuario(this.userEncontrado)
     console.log(this.mensaje)
-    this.mensajeExito ="Usuario eliminado exitosamente, recarga la pagina para ver cambios"
+    this.b = !this.b;
+    this.aviso =this.b?"Usuario eliminado exitosamente, recarga la pagina para ver cambios" : ""
   }catch (error){
     console.log(error);
   }
@@ -69,6 +79,8 @@ async eliminarUsuario(nombre: String){
     try {
       this.notaActual = this.notas.filter(nota => nota.titulo == titulo)[0]
       this.mensaje = await this.userService.eliminarNota(this.notaActual)
+      this.bandera = !this.bandera;
+      this.mensajeExito  = this.bandera?"Nota eliminada correctamente, recarga la pagina para ver cambios": ""
       console.log(this.mensaje)
     }
     catch (err) {

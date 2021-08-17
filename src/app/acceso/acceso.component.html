@@ -1,3 +1,4 @@
+<h5>¿No tienes una cuenta? <a routerLink="/registro">!Registrate aqui!</a></h5>
 <form novalidate (ngSubmit)="loginUser(loginForm)" [formGroup]="loginForm">
 
   <h2 class="separador aling">Accesar</h2>
@@ -13,7 +14,7 @@
   <div class="d-grid gap-2"> <button type="submit" class="btn btn-dark">Ingresar</button></div>
 
 
-  <div class="alert" role="alert">
+  <div class="alert alert-warning" role="alert" *ngIf = "flag==true">
 
     {{mensaje}}
 

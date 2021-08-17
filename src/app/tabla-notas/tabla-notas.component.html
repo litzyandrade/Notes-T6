@@ -1,8 +1,16 @@
-
+<h4 class="sesion">Sesion activa: <span>{{sesion}}</span></h4>
 <div class="d-grid gap-2 d-md-flex justify-content-md-end">
     <a type="button" class="btn btn-outline-primary" routerLink="/notas/nueva-nota">Crear nota <i class="fas fa-plus"></i></a>
 </div>
-
+<br>
+<div class="alert alert-info" role="alert" *ngIf = "flag==true">
+    <i class="fas fa-sad-tear"></i>  {{ mensaje}}
+ 
+   </div>
+   <div class="alert alert-success" role="alert" *ngIf = "bandera==true">
+    <i class="fas fa-check-circle"></i>  {{ mensaje}}
+ 
+   </div>
 <div class="container mt-5 mb-3">
     <div class="row">
         <div class="col-md-4" *ngFor = "let nota of notas;">
@@ -14,7 +22,7 @@
                             <h6 class="mb-0">{{nota.titulo}}</h6> <span>{{nota.fechaA}}</span>
                         </div>
                     </div>
-                    <div class="badge"> <span><button type="button" id="btnEliminar" class="btn btn-outline-danger"><i class="fas fa-trash"></i></button></span> </div>
+                    <div class="badge"> <span><button type="button" id="btnEliminar" (click)="eliminarNotas(nota.titulo)"class="btn btn-outline-danger"><i class="fas fa-trash"></i></button></span> </div>
                 </div>
                 <div class="mt-5">
                     <h3 class="heading">{{nota.descripcion}}</h3>
