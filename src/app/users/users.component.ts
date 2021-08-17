@@ -8,6 +8,7 @@ import {User} from  '../interfaces/user/user.module';
 })
 export class UsersComponent implements OnInit {
   users: User[] =[];
+  mensaje: any = "";
   constructor(private userService: UserService) { }
   
 
@@ -16,7 +17,7 @@ export class UsersComponent implements OnInit {
   }
   async getUsers(){
     try{
-      
+      this.mensaje = sessionStorage.getItem('email')
       this.users = await this.userService.getUsers();
 
     }catch(err){

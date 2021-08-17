@@ -9,8 +9,9 @@ import { User } from '../interfaces/user/user.module';
 })
 export class NotasComponent implements OnInit {
 notas:Notas []=[];
+
 nota:Notas={
-  
+
   titulo:"",
   descripcion:"",
   tipo:"",

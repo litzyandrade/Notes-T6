@@ -42,15 +42,18 @@
             <textarea class="form-control" id="textArea" formControlName="descripcion" rows="3"></textarea>
 
         </div>
+        <div class="alert alert alert-success" role="alert" *ngIf = "bandera==true">
+
+            <i class="fas fa-check-circle"></i> {{mensaje}}
+    
+        </div>
         <div class="d-grid gap-2">
             <input class="btn btn-dark " type="submit" value="Guardar">
         </div>
-        <div class="alert" role="alert">
-
-            {{mensaje}}
-
-        </div>
+        <br>
+      
+        
     </form>
-
+    
 
 </div>

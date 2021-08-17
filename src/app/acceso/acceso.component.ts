@@ -11,6 +11,7 @@ import { Router } from '@angular/router';
 export class AccesoComponent implements OnInit {
   loginForm: FormGroup;
   mensaje: any = "";
+  flag: boolean = false;
   constructor(private userService: UserService, private router: Router) {
     this.loginForm = new FormGroup({
       email: new FormControl('', [Validators.required]),
@@ -33,8 +34,12 @@ export class AccesoComponent implements OnInit {
           this.router.navigate(["users"])
           console.log("esta es la sesion actual " + sessionStorage.getItem('email'))
         }
-      } catch (er) {this.mensaje = "Usuario y contraseña no validos"}
+      } catch (er) {
+        this.flag = !this.flag;
+        this.mensaje = this.flag? "Usuario y contraseña no validos": ""}
     } else {
+      this.flag = !this.flag;
+      this.mensaje = this.flag? "Error, algun campo esta vacio": ""
       console.log("error")
     }
   }
