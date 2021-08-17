@@ -8,7 +8,7 @@ import { Notas } from '../notas/notas.module';
 })
 export class UserService {
   users: User[] = [];
-  notas:Notas[]=[];
+  notas: Notas[] = [];
   constructor(private apiServices: ApiService) { }
 
   registerUser(user: User) {
@@ -41,30 +41,24 @@ export class UserService {
   isLogin() {
     return this.apiServices.getIsLogin()
   }
-getNota(){
-  return new Promise<Notas[]>((resolve,reject)=>{
-    this.notas=this.apiServices.getNotas();
-    resolve(this.notas)
-  })
-}
 
-agregarNota(nota: Notas){
-  return new Promise((resolve,reject)=>{
-    this.apiServices.setNotas(nota);
-    resolve("Nota insertada correctamente!")
-    reject("Error al insertar la nota")
+  agregarNota(nota: Notas) {
+    return new Promise((resolve, reject) => {
+      this.apiServices.setNotas(nota);
+      resolve("Nota insertada correctamente!")
+      reject("Error al insertar la nota")
 
-  })
-}
+    })
+  }
 
-eliminarNota(nota: Notas){
-  return new Promise((resolve,reject)=>{
-    console.log("si entro a eliminar")
-    this.apiServices.deleteNota(nota);
-    resolve("Nota eliminada correctamente!")
-    reject("Error al eliminar la nota")
+  eliminarNota(nota: Notas) {
+    return new Promise((resolve, reject) => {
+      console.log("si entro a eliminar")
+      this.apiServices.deleteNota(nota);
+      resolve("Nota eliminada correctamente!")
+      reject("Error al eliminar la nota")
 
-  })
-}
+    })
+  }
 
 }
