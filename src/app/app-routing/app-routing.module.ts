@@ -14,7 +14,7 @@ const routes: Routes = [
   { path: '', component: RegistroComponent },
   { path: 'registro', component: RegistroComponent },
   { path: 'acceso', component: AccesoComponent },
-  { path: 'dashboard', component: DashboardComponent },
+  { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuardService] },
   { path: 'users', component: UsersComponent, canActivate: [AuthGuardService] },
   {
     path: 'notas',
